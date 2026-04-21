@@ -7,6 +7,8 @@ import { Honeypots } from "@/components/Honeypots";
 import { CategoryToolbar } from "@/components/CategoryToolbar";
 import { CategoryFilters } from "@/components/CategoryFilters";
 
+export const revalidate = 300;
+
 type Params = { slug: string };
 
 export function generateStaticParams(): Params[] {

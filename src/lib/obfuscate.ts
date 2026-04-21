@@ -1,6 +1,8 @@
-import { domSeed } from "./data";
+import { getDomSeed } from "./data";
 
-const SEED = domSeed.seed;
+function getSeed(): string {
+  return getDomSeed().seed;
+}
 
 function fnv1a(input: string): number {
   let h = 0x811c9dc5;
@@ -23,7 +25,7 @@ function mulberry32(seedInt: number) {
 }
 
 export function prng(key: string): () => number {
-  return mulberry32(fnv1a(SEED + "::" + key));
+  return mulberry32(fnv1a(getSeed() + "::" + key));
 }
 
 export function rnd(key: string): number {
@@ -117,12 +119,16 @@ export function honeypotDigits(key: string, len = 8): string {
   return out;
 }
 
-export const PRICE_STRATEGY = (() => {
-  const strategies = ["split-digits", "decimal-reorder", "zwsp-scatter"] as const;
-  return pick(strategies, "price-strategy");
-})();
+const PRICE_STRATEGIES = ["split-digits", "decimal-reorder", "zwsp-scatter"] as const;
+export type PriceStrategy = (typeof PRICE_STRATEGIES)[number];
 
-export const BUILD_CLASS_SUFFIX = hashedClass("build-suffix");
+export function priceStrategy(): PriceStrategy {
+  return pick(PRICE_STRATEGIES, "price-strategy");
+}
+
+export function buildClassSuffix(): string {
+  return hashedClass("build-suffix");
+}
 
 const ARIA_PRICE_STYLES = [
   (int: string, dec: string, cur: string) => `${int} ${cur} and ${dec} cents`,

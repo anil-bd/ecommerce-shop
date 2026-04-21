@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useCart } from "@/lib/cart";
-import { products } from "@/lib/data";
+import { getProducts } from "@/lib/data";
 import { discountedPrice, formatMoney } from "@/lib/format";
 import { TruckIcon, ShieldIcon, RefreshIcon } from "./Icons";
 
@@ -41,6 +41,7 @@ export function CartContents() {
     );
   }
 
+  const products = getProducts();
   const rows = lines
     .map((line) => {
       const product = products.find((p) => p.id === line.productId);

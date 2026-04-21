@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
-import { BUILD_CLASS_SUFFIX } from "@/lib/obfuscate";
-import { domSeed } from "@/lib/data";
+import { buildClassSuffix } from "@/lib/obfuscate";
+import { getDomSeed } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Alto & Oak — A small catalog of well-made things",
@@ -11,9 +11,11 @@ export const metadata: Metadata = {
     "A curated shop of honest goods from independent makers. Electronics, apparel, and home goods with prices that move with the market.",
 };
 
-const buildCss = `
-  .pc-${BUILD_CLASS_SUFFIX} { display: inline-block; }
-  .pcd-${BUILD_CLASS_SUFFIX} {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const suffix = buildClassSuffix();
+  const buildCss = `
+  .pc-${suffix} { display: inline-block; }
+  .pcd-${suffix} {
     position: absolute !important;
     width: 1px !important;
     height: 1px !important;
@@ -27,12 +29,10 @@ const buildCss = `
     top: auto !important;
   }
 `;
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <meta name="x-build" content={domSeed.buildId} />
+        <meta name="x-build" content={getDomSeed().buildId} />
         <style dangerouslySetInnerHTML={{ __html: buildCss }} />
       </head>
       <body className="min-h-screen bg-stone-50 text-stone-900">

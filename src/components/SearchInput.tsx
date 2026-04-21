@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { products } from "@/lib/data";
+import { getProducts } from "@/lib/data";
 import { SearchIcon } from "./Icons";
 
 type Props = {
@@ -19,7 +19,7 @@ export function SearchInput({ className }: Props) {
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return [];
-    return products
+    return getProducts()
       .filter(
         (p) =>
           p.name.toLowerCase().includes(q) ||

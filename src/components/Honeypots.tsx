@@ -1,4 +1,4 @@
-import { BUILD_CLASS_SUFFIX, honeypotDigits, rndInt, hashedClass } from "@/lib/obfuscate";
+import { buildClassSuffix, honeypotDigits, rndInt, hashedClass } from "@/lib/obfuscate";
 
 type HoneypotsProps = {
   scope: string;
@@ -6,7 +6,7 @@ type HoneypotsProps = {
 
 export function Honeypots({ scope }: HoneypotsProps) {
   const count = rndInt("hp-count::" + scope, 2, 4);
-  const decoyCls = `pcd-${BUILD_CLASS_SUFFIX}`;
+  const decoyCls = `pcd-${buildClassSuffix()}`;
 
   return (
     <>

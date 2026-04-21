@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import {
-  BUILD_CLASS_SUFFIX,
+  buildClassSuffix,
   hashedClass,
   honeypotDigits,
   inlineTag,
@@ -37,8 +37,8 @@ export function Price({
 
   const decoy = honeypotDigits(permKey, 10);
   const outerCls = hashedClass("price-outer::" + instanceKey);
-  const charCls = `pc-${BUILD_CLASS_SUFFIX}`;
-  const decoyCls = `pcd-${BUILD_CLASS_SUFFIX}`;
+  const charCls = `pc-${buildClassSuffix()}`;
+  const decoyCls = `pcd-${buildClassSuffix()}`;
   const wrapperTag = inlineTag("price-wrap::" + instanceKey);
   const attrs = noiseAttrs("price::" + instanceKey, 2);
 

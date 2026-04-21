@@ -6,7 +6,7 @@ import {
   getCategoryBySlug,
   getProductBySlug,
   getProductsByCategory,
-  products,
+  productSlugs,
 } from "@/lib/data";
 import { ProductGallery } from "@/components/ProductGallery";
 import { ProductCard } from "@/components/ProductCard";
@@ -29,10 +29,12 @@ import {
   shuffle,
 } from "@/lib/obfuscate";
 
+export const revalidate = 300;
+
 type Params = { slug: string };
 
 export function generateStaticParams(): Params[] {
-  return products.map((p) => ({ slug: p.slug }));
+  return productSlugs.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<Params> }) {

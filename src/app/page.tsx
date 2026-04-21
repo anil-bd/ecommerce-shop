@@ -1,6 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { categories, products, getProductsByCategory } from "@/lib/data";
+import { categories, getProducts, getProductsByCategory } from "@/lib/data";
+
+// Regenerate at most every 5 minutes so the 3am UTC rotation lands promptly.
+export const revalidate = 300;
+
 import { ProductCard } from "@/components/ProductCard";
 import { Honeypots } from "@/components/Honeypots";
 import { Hero } from "@/components/Hero";
@@ -10,6 +14,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { shuffle } from "@/lib/obfuscate";
 
 export default function HomePage() {
+  const products = getProducts();
   const featured = shuffle(products, "home-featured").slice(0, 8);
   const newArrivals = shuffle(products, "new-arrivals").slice(0, 4);
 

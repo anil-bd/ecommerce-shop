@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { domSeed, categories } from "@/lib/data";
+import { getDomSeed, categories } from "@/lib/data";
 
 const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
   {
@@ -106,7 +106,7 @@ export function Footer() {
             <span>Apple Pay</span>
             <span>Shop Pay</span>
           </div>
-          <span className="font-mono text-[11px] text-stone-400">build {domSeed.buildId}</span>
+          <span className="font-mono text-[11px] text-stone-400">build {getDomSeed().buildId}</span>
         </div>
       </div>
     </footer>

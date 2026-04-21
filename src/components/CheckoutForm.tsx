@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { useCart } from "@/lib/cart";
-import { products } from "@/lib/data";
+import { getProducts } from "@/lib/data";
 import { discountedPrice, formatMoney } from "@/lib/format";
 import { ShieldIcon } from "./Icons";
 
@@ -54,6 +54,7 @@ export function CheckoutForm() {
   useEffect(() => setMounted(true), []);
 
   const summary = useMemo(() => {
+    const products = getProducts();
     const rows = lines
       .map((line) => {
         const product = products.find((p) => p.id === line.productId);
