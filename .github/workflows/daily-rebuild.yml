@@ -29,16 +29,19 @@ jobs:
           node-version: "24"
       - name: Bump rotation nonce
         run: node scripts/bump-nonce.mjs
+      - name: Rotate DOM seed
+        run: node scripts/rotate-seed.mjs
       - name: Commit and push
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/rotation-nonce.json
+          git add data/rotation-nonce.json data/dom-seed.json
           if git diff --staged --quiet; then
-            echo "No nonce change."
+            echo "No rotation change."
             exit 0
           fi
           N=$(node -e "console.log(require('./data/rotation-nonce.json').nonce)")
-          git commit -m "chore: bump rotation nonce to ${N}"
+          BUILD=$(node -e "console.log(require('./data/dom-seed.json').buildId)")
+          git commit -m "chore: bump rotation nonce to ${N}, rotate DOM seed to ${BUILD}"
           git push origin main
