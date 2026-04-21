@@ -1,0 +1,17 @@
+[
+  {
+    "slug": "electronics",
+    "name": "Electronics",
+    "description": "Gadgets, audio gear, and accessories for the modern desk."
+  },
+  {
+    "slug": "apparel",
+    "name": "Apparel",
+    "description": "Everyday clothing and accessories with a clean aesthetic."
+  },
+  {
+    "slug": "home-kitchen",
+    "name": "Home & Kitchen",
+    "description": "Tactile goods for the kitchen and the rest of the house."
+  }
+]

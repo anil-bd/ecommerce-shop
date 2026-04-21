@@ -1,0 +1,331 @@
+[
+  {
+    "id": "p-001",
+    "slug": "aurora-wireless-headphones",
+    "name": "Aurora Wireless Headphones",
+    "description": "Over-ear wireless headphones with 40 mm drivers, 32 hours of battery, and memory-foam cups that disappear on long sessions. A soft matte finish keeps fingerprints off and the folding hinge makes them easy to toss in a bag.",
+    "category": "electronics",
+    "basePrice": 179,
+    "currentPrice": 188.56,
+    "previousPrice": 179,
+    "currency": "USD",
+    "discountPercent": 10,
+    "images": [
+      "https://loremflickr.com/800/800/headphones,audio?lock=0011",
+      "https://loremflickr.com/800/800/headphones,audio?lock=0012",
+      "https://loremflickr.com/800/800/headphones,audio?lock=0013"
+    ]
+  },
+  {
+    "id": "p-002",
+    "slug": "pulse-smartwatch",
+    "name": "Pulse Smartwatch",
+    "description": "A titanium-framed smartwatch with an always-on AMOLED display, 7-day battery, and built-in GPS for runs that don't need your phone. Tracks heart rate, sleep, and 90+ workout modes.",
+    "category": "electronics",
+    "basePrice": 249,
+    "currentPrice": 228.92,
+    "previousPrice": 249,
+    "currency": "USD",
+    "discountPercent": 0,
+    "images": [
+      "https://loremflickr.com/800/800/smartwatch,watch?lock=0021",
+      "https://loremflickr.com/800/800/smartwatch,watch?lock=0022"
+    ]
+  },
+  {
+    "id": "p-003",
+    "slug": "clack-75-mechanical-keyboard",
+    "name": "Clack 75% Mechanical Keyboard",
+    "description": "A compact 75% layout with hot-swap sockets, gasket-mounted PCB, and a rotary volume knob. Tactile linear switches ship pre-lubed; PBT double-shot keycaps give every keystroke a satisfying thock.",
+    "category": "electronics",
+    "basePrice": 139,
+    "currentPrice": 152.1,
+    "previousPrice": 139,
+    "currency": "USD",
+    "discountPercent": 15,
+    "images": [
+      "https://loremflickr.com/800/800/mechanical,keyboard?lock=0031",
+      "https://loremflickr.com/800/800/mechanical,keyboard?lock=0032",
+      "https://loremflickr.com/800/800/mechanical,keyboard?lock=0033"
+    ]
+  },
+  {
+    "id": "p-004",
+    "slug": "echo-portable-speaker",
+    "name": "Echo Portable Speaker",
+    "description": "A pocket-sized Bluetooth speaker with surprising low-end and 18 hours of playback. IP67 rated for poolside, shower, or beach use, and it pairs with a second unit for true stereo.",
+    "category": "electronics",
+    "basePrice": 89,
+    "currentPrice": 87.9,
+    "previousPrice": 89,
+    "currency": "USD",
+    "discountPercent": 0,
+    "images": [
+      "https://loremflickr.com/800/800/speaker,bluetooth?lock=0041",
+      "https://loremflickr.com/800/800/speaker,bluetooth?lock=0042"
+    ]
+  },
+  {
+    "id": "p-005",
+    "slug": "lumen-4k-webcam",
+    "name": "Lumen 4K Webcam",
+    "description": "A 4K webcam with a 1/1.8\" Sony sensor, HDR, and a physical privacy shutter. Locks focus fast, handles low light gracefully, and clips onto any monitor bezel.",
+    "category": "electronics",
+    "basePrice": 129,
+    "currentPrice": 118.16,
+    "previousPrice": 129,
+    "currency": "USD",
+    "discountPercent": 0,
+    "images": [
+      "https://loremflickr.com/800/800/webcam,camera?lock=0051",
+      "https://loremflickr.com/800/800/webcam,camera?lock=0052",
+      "https://loremflickr.com/800/800/webcam,camera?lock=0053"
+    ]
+  },
+  {
+    "id": "p-006",
+    "slug": "hub-9-usb-c-dock",
+    "name": "Hub 9 USB-C Dock",
+    "description": "Nine ports in a brushed aluminum shell: 4K HDMI, gigabit ethernet, SD/microSD, three USB-A, and 100 W pass-through charging. Plug in once and your desk is done.",
+    "category": "electronics",
+    "basePrice": 69,
+    "currentPrice": 73.53,
+    "previousPrice": 69,
+    "currency": "USD",
+    "discountPercent": 5,
+    "images": [
+      "https://loremflickr.com/800/800/usb,hub,dock?lock=0061",
+      "https://loremflickr.com/800/800/usb,hub,dock?lock=0062"
+    ]
+  },
+  {
+    "id": "p-007",
+    "slug": "mute-pro-earbuds",
+    "name": "Mute Pro Earbuds",
+    "description": "Noise-canceling earbuds with adaptive ANC, a transparent mode that feels natural on calls, and six hours of playback per charge. The case is the size of a matchbox.",
+    "category": "electronics",
+    "basePrice": 199,
+    "currentPrice": 182.71,
+    "previousPrice": 199,
+    "currency": "USD",
+    "discountPercent": 20,
+    "images": [
+      "https://loremflickr.com/800/800/earbuds,wireless?lock=0071",
+      "https://loremflickr.com/800/800/earbuds,wireless?lock=0072",
+      "https://loremflickr.com/800/800/earbuds,wireless?lock=0073"
+    ]
+  },
+  {
+    "id": "p-008",
+    "slug": "everyday-cotton-tee",
+    "name": "Everyday Cotton Tee",
+    "description": "A heavyweight 240 gsm combed cotton tee with a relaxed fit and a ribbed crew neck that keeps its shape wash after wash. Cut to drape well over jeans or under a jacket.",
+    "category": "apparel",
+    "basePrice": 32,
+    "currentPrice": 32.93,
+    "previousPrice": 32,
+    "currency": "USD",
+    "discountPercent": 0,
+    "images": [
+      "https://loremflickr.com/800/800/tshirt,cotton?lock=0081",
+      "https://loremflickr.com/800/800/tshirt,cotton?lock=0082"
+    ]
+  },
+  {
+    "id": "p-009",
+    "slug": "quiet-fleece-hoodie",
+    "name": "Quiet Fleece Hoodie",
+    "description": "A brushed-back fleece hoodie in midweight 380 gsm cotton blend. Kangaroo pocket, flat drawcords, and a drop shoulder — no logos, no slogans.",
+    "category": "apparel",
+    "basePrice": 78,
+    "currentPrice": 85.48,
+    "previousPrice": 78,
+    "currency": "USD",
+    "discountPercent": 10,
+    "images": [
+      "https://loremflickr.com/800/800/hoodie,sweatshirt?lock=0091",
+      "https://loremflickr.com/800/800/hoodie,sweatshirt?lock=0092",
+      "https://loremflickr.com/800/800/hoodie,sweatshirt?lock=0093"
+    ]
+  },
+  {
+    "id": "p-010",
+    "slug": "field-denim-jacket",
+    "name": "Field Denim Jacket",
+    "description": "A 14 oz selvedge denim jacket cut a bit longer than a classic Type III. Copper rivets, chain-stitched hems, and two chest pockets big enough for a phone and a notebook.",
+    "category": "apparel",
+    "basePrice": 148,
+    "currentPrice": 156.09,
+    "previousPrice": 148,
+    "currency": "USD",
+    "discountPercent": 0,
+    "images": [
+      "https://loremflickr.com/800/800/denim,jacket?lock=0101",
+      "https://loremflickr.com/800/800/denim,jacket?lock=0102"
+    ]
+  },
+  {
+    "id": "p-011",
+    "slug": "lane-canvas-sneakers",
+    "name": "Lane Canvas Sneakers",
+    "description": "A low-top canvas sneaker with a vulcanized rubber sole and a cushioned insole that makes all-day wear painless. Off-white upper, gum sole, unfussy.",
+    "category": "apparel",
+    "basePrice": 65,
+    "currentPrice": 66.44,
+    "previousPrice": 65,
+    "currency": "USD",
+    "discountPercent": 0,
+    "images": [
+      "https://loremflickr.com/800/800/sneakers,canvas,shoes?lock=0111",
+      "https://loremflickr.com/800/800/sneakers,canvas,shoes?lock=0112",
+      "https://loremflickr.com/800/800/sneakers,canvas,shoes?lock=0113"
+    ]
+  },
+  {
+    "id": "p-012",
+    "slug": "dugout-baseball-cap",
+    "name": "Dugout Baseball Cap",
+    "description": "A washed cotton twill cap with a pre-curved brim and a brass slider closure. Broken in from the first wear.",
+    "category": "apparel",
+    "basePrice": 28,
+    "currentPrice": 30.46,
+    "previousPrice": 28,
+    "currency": "USD",
+    "discountPercent": 0,
+    "images": [
+      "https://loremflickr.com/800/800/cap,baseball?lock=0121",
+      "https://loremflickr.com/800/800/cap,baseball?lock=0122"
+    ]
+  },
+  {
+    "id": "p-013",
+    "slug": "highland-wool-scarf",
+    "name": "Highland Wool Scarf",
+    "description": "Woven in Scotland from a lightweight lambswool with hand-knotted tassels. Wide enough to double over for serious cold, soft enough to wear all day.",
+    "category": "apparel",
+    "basePrice": 58,
+    "currentPrice": 62.87,
+    "previousPrice": 58,
+    "currency": "USD",
+    "discountPercent": 15,
+    "images": [
+      "https://loremflickr.com/800/800/scarf,wool?lock=0131",
+      "https://loremflickr.com/800/800/scarf,wool?lock=0132"
+    ]
+  },
+  {
+    "id": "p-014",
+    "slug": "pace-running-shorts",
+    "name": "Pace Running Shorts",
+    "description": "A 5-inch running short in a light ripstop shell with a liner that actually breathes. Zip back pocket, elastic drawcord waist, and reflective trim at the hem.",
+    "category": "apparel",
+    "basePrice": 48,
+    "currentPrice": 51.21,
+    "previousPrice": 48,
+    "currency": "USD",
+    "discountPercent": 0,
+    "images": [
+      "https://loremflickr.com/800/800/running,shorts,athletic?lock=0141",
+      "https://loremflickr.com/800/800/running,shorts,athletic?lock=0142",
+      "https://loremflickr.com/800/800/running,shorts,athletic?lock=0143"
+    ]
+  },
+  {
+    "id": "p-015",
+    "slug": "kiln-ceramic-mug",
+    "name": "Kiln Ceramic Mug",
+    "description": "A 12 oz stoneware mug with a matte speckled glaze and a handle sized for a whole fist, not just a finger. Dishwasher and microwave safe.",
+    "category": "home-kitchen",
+    "basePrice": 22,
+    "currentPrice": 20.77,
+    "previousPrice": 22,
+    "currency": "USD",
+    "discountPercent": 0,
+    "images": [
+      "https://loremflickr.com/800/800/mug,ceramic,coffee?lock=0151",
+      "https://loremflickr.com/800/800/mug,ceramic,coffee?lock=0152"
+    ]
+  },
+  {
+    "id": "p-016",
+    "slug": "press-34-french-press",
+    "name": "Press 34 French Press",
+    "description": "A 34 oz double-walled stainless French press that keeps coffee hot for an hour without cooking it. Fine mesh filter, four cup capacity, dishwasher safe.",
+    "category": "home-kitchen",
+    "basePrice": 59,
+    "currentPrice": 53.28,
+    "previousPrice": 59,
+    "currency": "USD",
+    "discountPercent": 10,
+    "images": [
+      "https://loremflickr.com/800/800/coffee,press?lock=0161",
+      "https://loremflickr.com/800/800/coffee,press?lock=0162",
+      "https://loremflickr.com/800/800/coffee,press?lock=0163"
+    ]
+  },
+  {
+    "id": "p-017",
+    "slug": "foundry-cast-iron-skillet",
+    "name": "Foundry Cast Iron Skillet",
+    "description": "A 10-inch pre-seasoned cast iron skillet, sand cast in a single piece. Heats evenly, holds heat forever, and gets better the more you cook in it.",
+    "category": "home-kitchen",
+    "basePrice": 54,
+    "currentPrice": 53.83,
+    "previousPrice": 54,
+    "currency": "USD",
+    "discountPercent": 0,
+    "images": [
+      "https://loremflickr.com/800/800/skillet,castiron,pan?lock=0171",
+      "https://loremflickr.com/800/800/skillet,castiron,pan?lock=0172"
+    ]
+  },
+  {
+    "id": "p-018",
+    "slug": "grain-bamboo-cutting-board",
+    "name": "Grain Bamboo Cutting Board",
+    "description": "An end-grain bamboo cutting board with a deep juice groove and built-in side handles. Knife-friendly, naturally antimicrobial, and easy on the wrists.",
+    "category": "home-kitchen",
+    "basePrice": 38,
+    "currentPrice": 41.12,
+    "previousPrice": 38,
+    "currency": "USD",
+    "discountPercent": 0,
+    "images": [
+      "https://loremflickr.com/800/800/cutting,board,kitchen?lock=0181",
+      "https://loremflickr.com/800/800/cutting,board,kitchen?lock=0182"
+    ]
+  },
+  {
+    "id": "p-019",
+    "slug": "soft-linen-throw",
+    "name": "Soft Linen Throw",
+    "description": "A stonewashed Belgian linen throw blanket with a loose weave and hand-fringed edges. Light enough for summer naps, layered well in winter.",
+    "category": "home-kitchen",
+    "basePrice": 92,
+    "currentPrice": 83.91,
+    "previousPrice": 92,
+    "currency": "USD",
+    "discountPercent": 20,
+    "images": [
+      "https://loremflickr.com/800/800/blanket,linen,throw?lock=0191",
+      "https://loremflickr.com/800/800/blanket,linen,throw?lock=0192",
+      "https://loremflickr.com/800/800/blanket,linen,throw?lock=0193"
+    ]
+  },
+  {
+    "id": "p-020",
+    "slug": "beam-led-desk-lamp",
+    "name": "Beam LED Desk Lamp",
+    "description": "An articulated LED desk lamp with a touch-dimmable bar, five color temperatures, and a magnetic base that lets the arm swing in any direction. USB-A passthrough on the back.",
+    "category": "home-kitchen",
+    "basePrice": 84,
+    "currentPrice": 85.6,
+    "previousPrice": 84,
+    "currency": "USD",
+    "discountPercent": 0,
+    "images": [
+      "https://loremflickr.com/800/800/desk,lamp,light?lock=0201",
+      "https://loremflickr.com/800/800/desk,lamp,light?lock=0202"
+    ]
+  }
+]
