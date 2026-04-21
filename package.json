@@ -9,7 +9,8 @@
     "lint": "next lint",
     "rotate-seed": "node scripts/rotate-seed.mjs",
     "update-prices": "node scripts/update-prices.mjs",
-    "daily-mutation": "node scripts/update-prices.mjs && node scripts/rotate-seed.mjs"
+    "daily-mutation": "node scripts/update-prices.mjs && node scripts/rotate-seed.mjs",
+    "bump-nonce": "node scripts/bump-nonce.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

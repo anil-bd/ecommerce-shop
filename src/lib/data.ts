@@ -1,10 +1,12 @@
 import productsJson from "@data/products.json";
 import categoriesJson from "@data/categories.json";
+import nonceJson from "@data/rotation-nonce.json";
 import type { Category, DomSeed, Product } from "@/types";
 import { enrichProduct } from "./pricing";
 import { todayBusinessDate } from "./time";
 
 const BASELINE_SEED = "altoandoak-dom-v1";
+const ROTATION_NONCE = String((nonceJson as { nonce: number }).nonce ?? 0);
 
 function fnv1aHex(input: string): string {
   let h = 0x811c9dc5;
@@ -17,16 +19,16 @@ function fnv1aHex(input: string): string {
 
 function computeDomSeed(date: string): DomSeed {
   const parts = [
-    fnv1aHex(BASELINE_SEED + "::a::" + date),
-    fnv1aHex(BASELINE_SEED + "::b::" + date),
-    fnv1aHex(BASELINE_SEED + "::c::" + date),
-    fnv1aHex(BASELINE_SEED + "::d::" + date),
+    fnv1aHex(`${BASELINE_SEED}::a::${date}::${ROTATION_NONCE}`),
+    fnv1aHex(`${BASELINE_SEED}::b::${date}::${ROTATION_NONCE}`),
+    fnv1aHex(`${BASELINE_SEED}::c::${date}::${ROTATION_NONCE}`),
+    fnv1aHex(`${BASELINE_SEED}::d::${date}::${ROTATION_NONCE}`),
   ];
   const seed = parts.join("");
   return {
     seed,
     generatedAt: new Date().toISOString(),
-    buildId: `build-${date}-${seed.slice(0, 6)}`,
+    buildId: `build-${date}-n${ROTATION_NONCE}-${seed.slice(0, 6)}`,
     strategyVersion: 2,
   };
 }

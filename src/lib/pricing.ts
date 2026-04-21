@@ -1,7 +1,9 @@
 import type { Product } from "@/types";
+import nonceJson from "@data/rotation-nonce.json";
 import { todayBusinessDate, yesterdayBusinessDate } from "./time";
 
 const BASELINE_SEED = "altoandoak-pricing-v1";
+const ROTATION_NONCE = String((nonceJson as { nonce: number }).nonce ?? 0);
 
 function fnv1a(input: string): number {
   let h = 0x811c9dc5;
@@ -12,9 +14,9 @@ function fnv1a(input: string): number {
   return h >>> 0;
 }
 
-// Returns a float in [-1, 1] derived deterministically from (date, productId).
+// Returns a float in [-1, 1] derived deterministically from (date, productId, nonce).
 function priceNoise(date: string, productId: string): number {
-  const h = fnv1a(`${BASELINE_SEED}::${date}::${productId}`);
+  const h = fnv1a(`${BASELINE_SEED}::${date}::${productId}::${ROTATION_NONCE}`);
   return ((h % 200_001) - 100_000) / 100_000;
 }
 
