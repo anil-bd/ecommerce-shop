@@ -1,7 +1,5 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { createElement } from "react";
-import clsx from "clsx";
 import {
   getCategoryBySlug,
   getProductBySlug,
@@ -10,7 +8,7 @@ import {
 } from "@/lib/data";
 import { ProductGallery } from "@/components/ProductGallery";
 import { ProductCard } from "@/components/ProductCard";
-import { Price } from "@/components/Price";
+import { ProductDetailAnchor } from "@/components/DetailLayouts";
 import { AddToCartButton } from "@/components/AddToCartButton";
 import { Honeypots } from "@/components/Honeypots";
 import { Wrap } from "@/components/Dyn";
@@ -19,12 +17,11 @@ import { ProductTabs } from "@/components/ProductTabs";
 import { Rating } from "@/components/Rating";
 import { WishlistButton } from "@/components/WishlistButton";
 import { TruckIcon, RefreshIcon, ShieldIcon, LeafIcon } from "@/components/Icons";
-import { discountedPrice, priceDeltaPercent } from "@/lib/format";
+import { priceDeltaPercent } from "@/lib/format";
 import { ratingFor, stockFor, viewersNow } from "@/lib/ratings";
 import { variantsFor } from "@/lib/variants";
 import {
   hashedClass,
-  headingTag,
   noiseAttrs,
   shuffle,
 } from "@/lib/obfuscate";
@@ -58,16 +55,13 @@ export default async function ProductPage({
     getProductsByCategory(product.category).filter((p) => p.id !== product.id),
     `related::${product.id}`,
   ).slice(0, 4);
-  const finalPrice = discountedPrice(product.currentPrice, product.discountPercent);
-  const delta = priceDeltaPercent(product.currentPrice, product.previousPrice);
   const { rating, reviewCount } = ratingFor(product.id);
   const stock = stockFor(product.id);
   const viewers = viewersNow(product.id);
   const variantGroups = variantsFor(product.id, product.category);
+  const delta = priceDeltaPercent(product.currentPrice, product.previousPrice);
 
   const pageKey = `product::${product.id}`;
-  const TitleTag = headingTag(pageKey + "::title");
-  const titleCls = hashedClass(pageKey + "::title-cls");
   const pageAttrs = noiseAttrs(pageKey, 2);
 
   return (
@@ -105,11 +99,7 @@ export default async function ProductPage({
             </span>
           </div>
 
-          {createElement(
-            TitleTag,
-            { className: clsx("font-serif text-4xl leading-tight text-stone-900", titleCls) },
-            product.name,
-          )}
+          <ProductDetailAnchor product={product} delta={delta} />
 
           <div className="flex items-center gap-3">
             <Rating value={rating} count={reviewCount} showValue size="md" />
@@ -118,38 +108,6 @@ export default async function ProductPage({
               {stock.soldToday} sold today
             </button>
           </div>
-
-          <div className="flex flex-wrap items-baseline gap-3">
-            <Price
-              amount={finalPrice}
-              currency={product.currency}
-              label={product.name}
-              instanceKey={`detail::${product.id}`}
-              className="text-3xl font-semibold text-stone-900"
-            />
-            {product.discountPercent > 0 ? (
-              <>
-                <Price
-                  amount={product.currentPrice}
-                  currency={product.currency}
-                  strike
-                  instanceKey={`detail-strike::${product.id}`}
-                  className="text-lg"
-                />
-                <span className="rounded-full bg-rose-600 px-2.5 py-1 text-xs font-semibold text-white">
-                  Save {product.discountPercent}%
-                </span>
-              </>
-            ) : null}
-          </div>
-
-          {delta !== null ? (
-            <p className="text-xs text-stone-500">
-              {delta >= 0 ? "↑" : "↓"} {Math.abs(delta).toFixed(1)}% vs yesterday — prices refresh daily
-            </p>
-          ) : null}
-
-          <p className="text-base leading-relaxed text-stone-700">{product.description}</p>
 
           {variantGroups.length ? <VariantPicker groups={variantGroups} /> : null}
 
