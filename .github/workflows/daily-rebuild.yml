@@ -12,6 +12,9 @@ concurrency:
   group: rotate-seed
   cancel-in-progress: false
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   bump:
     name: Bump rotation nonce
@@ -23,7 +26,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
       - name: Bump rotation nonce
         run: node scripts/bump-nonce.mjs
       - name: Commit and push
