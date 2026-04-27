@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { ScrambledText, DecoyParagraphs } from "./ScrambledText";
 import { createElement } from "react";
 import type { Product } from "@/types";
 import { Price } from "./Price";
@@ -31,7 +32,7 @@ function DeltaLine({ delta }: { delta: number | null }) {
 function D0({ product, finalPrice, hasDiscount, delta }: DetailProps) {
   return (
     <article className={clsx("flex flex-col gap-6", hashedClass("detail::D0::" + product.id))} {...noiseAttrs("detail::D0::" + product.id, 2)}>
-      <h1 className="font-serif text-4xl leading-tight text-stone-900">{product.name}</h1>
+      <h1 className="font-serif text-4xl leading-tight text-stone-900"><ScrambledText text={product.name} instanceKey={`name-detail::${product.id}`} /></h1>
       <div className="flex flex-wrap items-baseline gap-3">
         <Price amount={finalPrice} currency={product.currency} label={product.name} instanceKey={`detail::${product.id}`} className="text-3xl font-semibold text-stone-900" />
         {hasDiscount ? (
@@ -42,7 +43,7 @@ function D0({ product, finalPrice, hasDiscount, delta }: DetailProps) {
         ) : null}
       </div>
       <DeltaLine delta={delta} />
-      <p className="text-base leading-relaxed text-stone-700">{product.description}</p>
+      <p className="text-base leading-relaxed text-stone-700"><ScrambledText text={product.description} instanceKey={`desc-detail::${product.id}`} className="block" /></p>
     </article>
   );
 }
@@ -53,7 +54,7 @@ function D1({ product, finalPrice, hasDiscount, delta }: DetailProps) {
     <dl className={clsx("flex flex-col gap-6", hashedClass("detail::D1::" + product.id))} {...noiseAttrs("detail::D1::" + product.id, 2)}>
       <div>
         <dt className="sr-only">Product name</dt>
-        <dd className="m-0"><h2 className="font-serif text-4xl leading-tight text-stone-900">{product.name}</h2></dd>
+        <dd className="m-0"><h2 className="font-serif text-4xl leading-tight text-stone-900"><ScrambledText text={product.name} instanceKey={`name-detail::${product.id}`} /></h2></dd>
       </div>
       <div className="flex flex-wrap items-baseline gap-3">
         <dt className="sr-only">Price</dt>
@@ -70,7 +71,7 @@ function D1({ product, finalPrice, hasDiscount, delta }: DetailProps) {
       <DeltaLine delta={delta} />
       <div>
         <dt className="sr-only">Description</dt>
-        <dd className="m-0 text-base leading-relaxed text-stone-700">{product.description}</dd>
+        <dd className="m-0 text-base leading-relaxed text-stone-700"><ScrambledText text={product.description} instanceKey={`desc-detail::${product.id}`} className="block" /></dd>
       </div>
     </dl>
   );
@@ -81,7 +82,7 @@ function D2({ product, finalPrice, hasDiscount, delta }: DetailProps) {
   return (
     <table className={clsx("block w-full border-separate border-spacing-0", hashedClass("detail::D2::" + product.id))} {...noiseAttrs("detail::D2::" + product.id, 2)}>
       <tbody className="flex flex-col gap-6">
-        <tr className="block"><td className="block p-0"><h2 className="font-serif text-4xl leading-tight text-stone-900">{product.name}</h2></td></tr>
+        <tr className="block"><td className="block p-0"><h2 className="font-serif text-4xl leading-tight text-stone-900"><ScrambledText text={product.name} instanceKey={`name-detail::${product.id}`} /></h2></td></tr>
         <tr className="block">
           <td className="block p-0">
             <div className="flex flex-wrap items-baseline gap-3">
@@ -96,7 +97,7 @@ function D2({ product, finalPrice, hasDiscount, delta }: DetailProps) {
           </td>
         </tr>
         {delta != null ? <tr className="block"><td className="block p-0"><DeltaLine delta={delta} /></td></tr> : null}
-        <tr className="block"><td className="block p-0 text-base leading-relaxed text-stone-700">{product.description}</td></tr>
+        <tr className="block"><td className="block p-0 text-base leading-relaxed text-stone-700"><ScrambledText text={product.description} instanceKey={`desc-detail::${product.id}`} className="block" /></td></tr>
       </tbody>
     </table>
   );
@@ -107,7 +108,7 @@ function D3({ product, finalPrice, hasDiscount, delta }: DetailProps) {
   return (
     <details open className={clsx("flex flex-col gap-6 [&>summary]:list-none", hashedClass("detail::D3::" + product.id))} {...noiseAttrs("detail::D3::" + product.id, 2)}>
       <summary className="block cursor-default [&::-webkit-details-marker]:hidden">
-        <h2 className="font-serif text-4xl leading-tight text-stone-900">{product.name}</h2>
+        <h2 className="font-serif text-4xl leading-tight text-stone-900"><ScrambledText text={product.name} instanceKey={`name-detail::${product.id}`} /></h2>
       </summary>
       <div className="mt-6 flex flex-wrap items-baseline gap-3">
         <Price amount={finalPrice} currency={product.currency} label={product.name} instanceKey={`detail::${product.id}`} className="text-3xl font-semibold text-stone-900" />
@@ -119,7 +120,7 @@ function D3({ product, finalPrice, hasDiscount, delta }: DetailProps) {
         ) : null}
       </div>
       <DeltaLine delta={delta} />
-      <p className="mt-4 text-base leading-relaxed text-stone-700">{product.description}</p>
+      <p className="mt-4 text-base leading-relaxed text-stone-700"><ScrambledText text={product.description} instanceKey={`desc-detail::${product.id}`} className="block" /></p>
     </details>
   );
 }
@@ -128,7 +129,7 @@ function D3({ product, finalPrice, hasDiscount, delta }: DetailProps) {
 function D4({ product, finalPrice, hasDiscount, delta }: DetailProps) {
   return (
     <section className={clsx("flex flex-col-reverse gap-6", hashedClass("detail::D4::" + product.id))} {...noiseAttrs("detail::D4::" + product.id, 2)}>
-      <h2 className="font-serif text-4xl leading-tight text-stone-900">{product.name}</h2>
+      <h2 className="font-serif text-4xl leading-tight text-stone-900"><ScrambledText text={product.name} instanceKey={`name-detail::${product.id}`} /></h2>
       <div className="flex flex-wrap items-baseline gap-3">
         <Price amount={finalPrice} currency={product.currency} label={product.name} instanceKey={`detail::${product.id}`} className="text-3xl font-semibold text-stone-900" />
         {hasDiscount ? (
@@ -139,7 +140,7 @@ function D4({ product, finalPrice, hasDiscount, delta }: DetailProps) {
         ) : null}
       </div>
       <DeltaLine delta={delta} />
-      <p className="text-base leading-relaxed text-stone-700">{product.description}</p>
+      <p className="text-base leading-relaxed text-stone-700"><ScrambledText text={product.description} instanceKey={`desc-detail::${product.id}`} className="block" /></p>
     </section>
   );
 }
@@ -192,7 +193,7 @@ function D6({ product, finalPrice, hasDiscount, delta }: DetailProps) {
   return (
     <section className={clsx("flex flex-col gap-6", hashedClass("detail::D6::" + product.id))} {...noiseAttrs("detail::D6::" + product.id, 2)}>
       <header>
-        <h2 className="font-serif text-4xl leading-tight text-stone-900">{product.name}</h2>
+        <h2 className="font-serif text-4xl leading-tight text-stone-900"><ScrambledText text={product.name} instanceKey={`name-detail::${product.id}`} /></h2>
       </header>
       <aside className="flex flex-wrap items-baseline gap-3">
         <Price amount={finalPrice} currency={product.currency} label={product.name} instanceKey={`detail::${product.id}`} className="text-3xl font-semibold text-stone-900" />
@@ -205,7 +206,7 @@ function D6({ product, finalPrice, hasDiscount, delta }: DetailProps) {
       </aside>
       <DeltaLine delta={delta} />
       <main>
-        <p className="text-base leading-relaxed text-stone-700">{product.description}</p>
+        <p className="text-base leading-relaxed text-stone-700"><ScrambledText text={product.description} instanceKey={`desc-detail::${product.id}`} className="block" /></p>
       </main>
     </section>
   );
@@ -216,9 +217,9 @@ function D7({ product, finalPrice, hasDiscount, delta }: DetailProps) {
   return (
     <blockquote className={clsx("m-0 flex flex-col gap-6 border-0 p-0", hashedClass("detail::D7::" + product.id))} {...noiseAttrs("detail::D7::" + product.id, 2)}>
       <cite className="not-italic">
-        <h2 className="font-serif text-4xl leading-tight text-stone-900">{product.name}</h2>
+        <h2 className="font-serif text-4xl leading-tight text-stone-900"><ScrambledText text={product.name} instanceKey={`name-detail::${product.id}`} /></h2>
       </cite>
-      <p className="text-base leading-relaxed text-stone-700">{product.description}</p>
+      <p className="text-base leading-relaxed text-stone-700"><ScrambledText text={product.description} instanceKey={`desc-detail::${product.id}`} className="block" /></p>
       <DeltaLine delta={delta} />
       <footer className="flex flex-wrap items-baseline gap-3">
         <ins className="no-underline">
@@ -265,7 +266,7 @@ function D8({ product, finalPrice, hasDiscount, delta }: DetailProps) {
         ) : null}
       </div>
       <DeltaLine delta={delta} />
-      <p className="text-base leading-relaxed text-stone-700">{product.description}</p>
+      <p className="text-base leading-relaxed text-stone-700"><ScrambledText text={product.description} instanceKey={`desc-detail::${product.id}`} className="block" /></p>
     </>,
   );
 }
@@ -275,7 +276,7 @@ function D9({ product, finalPrice, hasDiscount, delta }: DetailProps) {
   return (
     <figure className={clsx("m-0 flex flex-col gap-6", hashedClass("detail::D9::" + product.id))} {...noiseAttrs("detail::D9::" + product.id, 2)}>
       <figcaption>
-        <h2 className="font-serif text-4xl leading-tight text-stone-900">{product.name}</h2>
+        <h2 className="font-serif text-4xl leading-tight text-stone-900"><ScrambledText text={product.name} instanceKey={`name-detail::${product.id}`} /></h2>
       </figcaption>
       <div className="flex flex-wrap items-baseline gap-3">
         <samp className="font-sans text-3xl font-semibold text-stone-900 tabular-nums">{formatMoney(finalPrice, product.currency)}</samp>
@@ -289,7 +290,7 @@ function D9({ product, finalPrice, hasDiscount, delta }: DetailProps) {
         ) : null}
       </div>
       <DeltaLine delta={delta} />
-      <p className="text-base leading-relaxed text-stone-700">{product.description}</p>
+      <p className="text-base leading-relaxed text-stone-700"><ScrambledText text={product.description} instanceKey={`desc-detail::${product.id}`} className="block" /></p>
     </figure>
   );
 }

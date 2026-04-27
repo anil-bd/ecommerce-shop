@@ -3,6 +3,7 @@
 import { useState } from "react";
 import clsx from "clsx";
 import { Rating } from "./Rating";
+import { ScrambledText, DecoyParagraphs } from "./ScrambledText";
 
 type Props = {
   description: string;
@@ -66,7 +67,16 @@ export function ProductTabs({ description, rating, reviewCount }: Props) {
       {tab === "description" ? (
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           <div className="md:col-span-2">
-            <p className="text-base leading-relaxed text-stone-700">{description}</p>
+            <div className="text-base leading-relaxed text-stone-700">
+              <DecoyParagraphs scope="tabs-desc-pre" count={2} />
+              <ScrambledText
+                text={description}
+                instanceKey="desc-tabs"
+                as="p"
+                className="block"
+              />
+              <DecoyParagraphs scope="tabs-desc-post" count={2} />
+            </div>
           </div>
           <dl className="flex flex-col gap-3 text-sm">
             <div className="flex flex-col gap-1 rounded-lg border border-stone-200 p-4">

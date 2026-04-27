@@ -9,6 +9,7 @@ import {
 import { ProductGallery } from "@/components/ProductGallery";
 import { ProductCard } from "@/components/ProductCard";
 import { ProductDetailAnchor } from "@/components/DetailLayouts";
+import { ScrambledText } from "@/components/ScrambledText";
 import { AddToCartButton } from "@/components/AddToCartButton";
 import { Honeypots } from "@/components/Honeypots";
 import { Wrap } from "@/components/Dyn";
@@ -77,7 +78,11 @@ export default async function ProductPage({
             <span>/</span>
           </>
         ) : null}
-        <span className="truncate text-stone-900">{product.name}</span>
+        <ScrambledText
+          text={product.name}
+          instanceKey={`name-crumb::${product.id}`}
+          className="truncate text-stone-900"
+        />
       </nav>
 
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-[3fr_2fr]">

@@ -43,5 +43,8 @@ export function computePrices(product: Product): {
 
 export function enrichProduct(product: Product): Product {
   const { currentPrice, previousPrice } = computePrices(product);
-  return { ...product, currentPrice, previousPrice };
+  const images = product.images.map((url) =>
+    url.includes("?") ? `${url}&v=${ROTATION_NONCE}` : `${url}?v=${ROTATION_NONCE}`,
+  );
+  return { ...product, currentPrice, previousPrice, images };
 }

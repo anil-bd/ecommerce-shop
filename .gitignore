@@ -11,3 +11,6 @@ dist
 next-env.d.ts
 .eslintcache
 .claude/settings.local.json
+.claude/settings.json
+.claude/worktrees/
+tsconfig.tsbuildinfo

@@ -13,6 +13,7 @@ import { ratingFor, stockFor } from "@/lib/ratings";
 import { cardLayoutIndex, LAYOUT_COUNT } from "@/lib/layouts";
 import { Price } from "./Price";
 import { Rating } from "./Rating";
+import { ScrambledText } from "./ScrambledText";
 import { WishlistButton } from "./WishlistButton";
 import { createElement } from "react";
 
@@ -299,7 +300,7 @@ function Layout5(p: LayoutProps) {
         className="relative block aspect-[4/5] bg-stone-100 bg-cover bg-center transition-opacity"
         style={{ backgroundImage: `url(${product.images[0]})` }}
       >
-        <span className="sr-only">{product.name}</span>
+        <span className="sr-only"><ScrambledText text={product.name} instanceKey={`name-card::${product.id}`} /></span>
         <span className="absolute left-3 top-3 flex flex-col gap-2">
           {hasDiscount ? (
             <span className="rounded-full bg-rose-600 px-2.5 py-1 text-[11px] font-semibold text-white">
