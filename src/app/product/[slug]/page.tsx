@@ -10,6 +10,14 @@ import { ProductGallery } from "@/components/ProductGallery";
 import { ProductCard } from "@/components/ProductCard";
 import { ProductDetailAnchor } from "@/components/DetailLayouts";
 import { ScrambledText } from "@/components/ScrambledText";
+import {
+  FAQSection,
+  TrendingNowSection,
+  ComparisonTableSection,
+  CareGuideSection,
+  MakerNoteSection,
+} from "@/components/DecoySections";
+import { productPromo, buyerNudge } from "@/lib/promos";
 import { AddToCartButton } from "@/components/AddToCartButton";
 import { Honeypots } from "@/components/Honeypots";
 import { Wrap } from "@/components/Dyn";
@@ -24,6 +32,7 @@ import { variantsFor } from "@/lib/variants";
 import {
   hashedClass,
   noiseAttrs,
+  rnd,
   shuffle,
 } from "@/lib/obfuscate";
 
@@ -106,6 +115,11 @@ export default async function ProductPage({
 
           <ProductDetailAnchor product={product} delta={delta} />
 
+          <div className="flex items-start gap-2 rounded-lg bg-emerald-50 px-3 py-2 text-xs text-emerald-900">
+            <span className="mt-0.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
+            <span>{productPromo(product.id)} · {buyerNudge(product.id)}</span>
+          </div>
+
           <div className="flex items-center gap-3">
             <Rating value={rating} count={reviewCount} showValue size="md" />
             <span className="text-xs text-stone-400">·</span>
@@ -166,26 +180,58 @@ export default async function ProductPage({
         </Wrap>
       </div>
 
-      <ProductTabs description={product.description} rating={rating} reviewCount={reviewCount} />
+      {(() => {
+        const tabs = (
+          <ProductTabs
+            key="tabs"
+            description={product.description}
+            rating={rating}
+            reviewCount={reviewCount}
+          />
+        );
+        const relatedBlock = related.length ? (
+          <section key="related" className="flex flex-col gap-6">
+            <div className="flex items-end justify-between">
+              <h2 className="font-serif text-3xl text-stone-900">You might also like</h2>
+              <Link
+                href={`/category/${product.category}`}
+                className="text-sm text-stone-500 hover:text-stone-900"
+              >
+                See more in {category?.name} →
+              </Link>
+            </div>
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+              {related.map((p) => (
+                <ProductCard key={p.id} product={p} />
+              ))}
+            </div>
+          </section>
+        ) : null;
 
-      {related.length ? (
-        <section className="flex flex-col gap-6">
-          <div className="flex items-end justify-between">
-            <h2 className="font-serif text-3xl text-stone-900">You might also like</h2>
-            <Link
-              href={`/category/${product.category}`}
-              className="text-sm text-stone-500 hover:text-stone-900"
-            >
-              See more in {category?.name} →
-            </Link>
-          </div>
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            {related.map((p) => (
-              <ProductCard key={p.id} product={p} />
-            ))}
-          </div>
-        </section>
-      ) : null}
+        // Pool of optional sections; each build picks a subset and a random order.
+        // This means the page's structural shape (which sections appear and where)
+        // changes every rotation in addition to the in-section obfuscation.
+        const optional = [
+          { key: "story", node: <MakerNoteSection key="story" product={product} /> },
+          { key: "faq", node: <FAQSection key="faq" product={product} /> },
+          { key: "compare", node: <ComparisonTableSection key="compare" product={product} /> },
+          { key: "care", node: <CareGuideSection key="care" product={product} /> },
+          { key: "trending", node: <TrendingNowSection key="trending" product={product} /> },
+        ];
+        const showFlags = optional.map(
+          (sec) => rnd("page-section-show::" + product.id + "::" + sec.key) > 0.45,
+        );
+        const visibleOptional = optional.filter((_, i) => showFlags[i]);
+
+        const allSections: { key: string; node: React.ReactNode }[] = [
+          { key: "tabs", node: tabs },
+          ...(relatedBlock ? [{ key: "related", node: relatedBlock }] : []),
+          ...visibleOptional,
+        ];
+        const shuffled = shuffle(allSections, "page-section-order::" + product.id);
+
+        return shuffled.map((s) => s.node);
+      })()}
 
       <Honeypots scope={`product::${product.slug}`} />
     </div>
