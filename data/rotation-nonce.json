@@ -1,5 +1,5 @@
 {
-  "nonce": 59,
-  "bumpedAt": "2026-06-07T07:01:47.028Z",
+  "nonce": 60,
+  "bumpedAt": "2026-06-08T07:25:50.835Z",
   "note": "Incremented by scripts/bump-nonce.mjs (and the manual GitHub Action) to force a fresh DOM/seed rotation without waiting for the 3am UTC boundary."
 }
